@@ -120,25 +120,7 @@ export const Hero: React.FC<HeroProps> = ({
               </div>
             </div>
 
-            {/* Quick Jump Popular Destinations */}
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-xs">
-              <span className="text-slate-400 font-semibold uppercase tracking-wider text-[11px] mr-1">Trending:</span>
-              {[
-                { label: '🌸 Kyoto Shrines', query: 'Kyoto', cat: 'cultural' as const },
-                { label: '⛵ Amalfi & Capri', query: 'Amalfi', cat: 'coastal' as const },
-                { label: '🧊 Patagonia Glacier', query: 'Patagonia', cat: 'adventure' as const },
-                { label: '🦁 Serengeti Migration', query: 'Serengeti', cat: 'wildlife' as const },
-                { label: '🌋 Iceland Aurora', query: 'Iceland', cat: 'adventure' as const },
-              ].map((chip) => (
-                <button
-                  key={chip.label}
-                  onClick={() => onFilterChange({ destinationQuery: chip.query, category: chip.cat })}
-                  className="px-3 py-1 rounded-full bg-white hover:bg-brand-50 border border-slate-200 hover:border-brand-300 text-slate-700 hover:text-brand-700 font-medium transition-all shadow-2xs cursor-pointer"
-                >
-                  {chip.label}
-                </button>
-              ))}
-            </div>
+
           </motion.div>
 
           {/* Right Flanking Experience Card (Coastal / Islands) */}

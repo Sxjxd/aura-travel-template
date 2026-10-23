@@ -136,7 +136,21 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-          <p>© {new Date().getFullYear()} AURA Journeys Ltd. All rights reserved. World-Class Business Website Template.</p>
+          <p className="flex flex-wrap items-center justify-center sm:justify-start gap-1.5 text-center sm:text-left">
+            <span>© {new Date().getFullYear()} AURA Journeys Ltd. All rights reserved.</span>
+            <span className="hidden sm:inline text-slate-700">•</span>
+            <span>
+              World-Class Business Website designed by{' '}
+              <a
+                href="https://www.ikizen.io"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-brand-400 font-semibold transition-colors underline-offset-4 hover:underline"
+              >
+                IKIZEN
+              </a>
+            </span>
+          </p>
           <div className="flex items-center gap-6">
             <a href="#" className="hover:text-slate-400 transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-slate-400 transition-colors">Booking Terms</a>

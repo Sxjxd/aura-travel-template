@@ -40,10 +40,10 @@ export const Hero: React.FC<HeroProps> = ({
               rotate: [-3, -4, -3],
             }}
             transition={{
-              opacity: { duration: 0.6 },
-              x: { duration: 0.6 },
-              y: { duration: 5.5, repeat: Infinity, ease: 'easeInOut' },
-              rotate: { duration: 5.5, repeat: Infinity, ease: 'easeInOut' },
+              opacity: { duration: 1.0 },
+              x: { duration: 1.0, ease: [0.22, 1, 0.36, 1] },
+              y: { duration: 7.5, repeat: Infinity, ease: 'easeInOut' },
+              rotate: { duration: 7.5, repeat: Infinity, ease: 'easeInOut' },
             }}
             onClick={() => onFilterChange({ destinationQuery: 'Kyoto', category: 'cultural' })}
             className="hidden xl:flex flex-col absolute left-0 top-2 w-56 bg-white p-2.5 rounded-2xl shadow-xl shadow-slate-900/10 border border-slate-200/90 z-20 cursor-pointer hover:scale-105 transition-transform group"
@@ -133,10 +133,10 @@ export const Hero: React.FC<HeroProps> = ({
               rotate: [3, 4, 3],
             }}
             transition={{
-              opacity: { duration: 0.6, delay: 0.2 },
-              x: { duration: 0.6, delay: 0.2 },
-              y: { duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 0.5 },
-              rotate: { duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 0.5 },
+              opacity: { duration: 1.0, delay: 0.2 },
+              x: { duration: 1.0, delay: 0.2, ease: [0.22, 1, 0.36, 1] },
+              y: { duration: 8.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 },
+              rotate: { duration: 8.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 },
             }}
             onClick={() => onFilterChange({ destinationQuery: 'Amalfi', category: 'coastal' })}
             className="hidden xl:flex flex-col absolute right-0 top-2 w-56 bg-white p-2.5 rounded-2xl shadow-xl shadow-slate-900/10 border border-slate-200/90 z-20 cursor-pointer hover:scale-105 transition-transform group"
@@ -177,9 +177,9 @@ export const Hero: React.FC<HeroProps> = ({
 
         {/* Embedded Interactive Trip Filter Widget */}
         <motion.div
-          initial={{ opacity: 0, y: 28 }}
+          initial={{ opacity: 0, y: 35 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.95, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
           className="mt-10 max-w-5xl mx-auto"
         >
           <TripSearchFilter

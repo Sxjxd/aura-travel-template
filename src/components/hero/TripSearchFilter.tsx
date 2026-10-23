@@ -148,7 +148,7 @@ export const TripSearchFilter: React.FC<TripSearchFilterProps> = ({
               }
               className="w-full pl-9 pr-8 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all appearance-none cursor-pointer"
             >
-              <option value="featured">Featured Curations</option>
+              <option value="featured">Featured Tours</option>
               <option value="price-asc">Price: Low to High</option>
               <option value="price-desc">Price: High to Low</option>
               <option value="rating">Highest Rated</option>

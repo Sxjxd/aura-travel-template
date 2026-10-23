@@ -35,7 +35,7 @@ export const Testimonials: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={viewportConfig}
-              transition={{ duration: 0.55, delay: idx * 0.12, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 1.05, delay: idx * 0.16, ease: [0.22, 1, 0.36, 1] }}
               className="bg-slate-50/70 rounded-2xl p-6 sm:p-8 border border-slate-200/90 flex flex-col justify-between hover:bg-slate-50 hover:shadow-md transition-all relative"
             >
               <Quote className="w-8 h-8 text-brand-200 mb-4" />

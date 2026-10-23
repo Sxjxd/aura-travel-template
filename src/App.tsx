@@ -26,11 +26,15 @@ export const App: React.FC = () => {
   // Initialize Lenis luxury smooth scrolling
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.25,
+      duration: 2.0,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      touchMultiplier: 1.5,
+      wheelMultiplier: 0.78,
+      touchMultiplier: 1.2,
     });
+
+    // Expose lenis instance globally for smooth button navigation
+    (window as unknown as { __lenis: Lenis }).__lenis = lenis;
 
     let animationFrameId: number;
     function raf(time: number) {
@@ -39,14 +43,18 @@ export const App: React.FC = () => {
     }
     animationFrameId = requestAnimationFrame(raf);
 
-    // Smoothly intercept in-page anchor links (e.g. #itinerary, #tours) with controlled easing
+    // Smoothly intercept in-page anchor links (e.g. #itinerary, #tours) with slow luxury glide
     const handleAnchorClick = (e: MouseEvent) => {
       const target = (e.target as HTMLElement).closest('a[href^="#"]');
       if (target) {
         const href = target.getAttribute('href');
         if (href && href !== '#' && document.querySelector(href)) {
           e.preventDefault();
-          lenis.scrollTo(href, { offset: -85, duration: 1.35 });
+          lenis.scrollTo(href, {
+            offset: -85,
+            duration: 2.2,
+            easing: (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2),
+          });
         }
       }
     };
@@ -138,10 +146,19 @@ export const App: React.FC = () => {
           filters={filters}
           onFilterChange={handleFilterChange}
           onResetFilters={handleResetFilters}
-          totalResults={filteredPackages.length}
           onExploreClick={() => {
-            document.getElementById('tours')?.scrollIntoView({ behavior: 'smooth' });
+            const lenis = (window as unknown as { __lenis?: Lenis }).__lenis;
+            if (lenis) {
+              lenis.scrollTo('#tours', {
+                offset: -85,
+                duration: 2.2,
+                easing: (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2),
+              });
+            } else {
+              document.getElementById('tours')?.scrollIntoView({ behavior: 'smooth' });
+            }
           }}
+          totalResults={filteredPackages.length}
         />
 
         {/* Commercial Trust & Numbers Strip */}

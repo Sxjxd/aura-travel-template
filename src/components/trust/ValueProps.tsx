@@ -67,7 +67,7 @@ export const ValueProps: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={viewportConfig}
-              transition={{ duration: 0.55, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 1.0, delay: idx * 0.16, ease: [0.22, 1, 0.36, 1] }}
               className={`bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/90 border-t-4 ${v.topBorder} shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group`}
             >
               <div>

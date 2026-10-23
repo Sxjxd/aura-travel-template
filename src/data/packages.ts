@@ -44,7 +44,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
       'Daily breakfast, 4 dinners including multi-course Kaiseki',
       'First-class Shinkansen (Bullet Train) passes & private luggage forward',
       'Licensed English-speaking bilingual historian guide throughout',
-      'All temple entry fees and curated cultural workshop passes',
+      'All temple entry fees and traditional cultural workshop passes',
     ],
     excludedFeatures: [
       'International flights to/from Tokyo/Osaka',

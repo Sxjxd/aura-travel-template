@@ -23,18 +23,18 @@ export const FAQS: FAQItem[] = [
     id: 'faq-4',
     category: 'Safety & Support',
     question: 'What size are your tour groups?',
-    answer: 'We intentionally cap our small-group departures at 8 to 14 guests depending on the ecosystem and logistics. This ensures zero crowding, intimate access to local hosts, swift morning departures, and personal attention from our certified lead guides.',
+    answer: 'We cap our small-group departures at 8 to 14 guests. This avoids crowds, gives you personal time with local hosts, and ensures our guides can focus on every guest.',
   },
   {
     id: 'faq-5',
     category: 'Preparation & Packing',
     question: 'Can dietary restrictions and special preferences be accommodated?',
-    answer: 'Absolutely. Whether you are plant-based, gluten-free, halal, kosher-style, or managing specific allergies, our local culinary teams and boutique lodges are notified in advance to prepare delicious, personalized alternatives at every included meal.',
+    answer: 'Absolutely. Whether you are vegetarian, vegan, gluten-free, halal, or have specific food allergies, our hotels and local restaurants are informed ahead of time to prepare quality meals for you.',
   },
   {
     id: 'faq-6',
     category: 'Safety & Support',
     question: 'Do you offer custom private itineraries for private groups or families?',
-    answer: 'Yes! Every small-group itinerary we offer can also be private-labeled and tailored specifically for your family, anniversary, or private group of friends with personalized dates, adjusted pacing, and bespoke inclusions.',
+    answer: 'Yes! Any of our small-group tours can be booked privately for your family or friends, with custom dates, flexible schedules, and activities chosen to match your group.',
   },
 ];

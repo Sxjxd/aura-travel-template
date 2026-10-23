@@ -27,13 +27,13 @@ export const ItineraryTimeline: React.FC<ItineraryTimelineProps> = ({ onCustomiz
         >
           <Badge variant="brand" className="mb-3">
             <Sparkles size={13} className="text-brand-600" />
-            <span>Interactive Route Breakdown</span>
+            <span>Sample Day-by-Day Route</span>
           </Badge>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-slate-950 tracking-tight">
-            How a Standard Journey Unfolds
+            How a Typical Tour Works
           </h2>
           <p className="mt-3 text-base text-slate-600">
-            Take a deep dive into our flagship 10-day expedition through ancient Kyoto and the Japanese Alps. Notice the thoughtful pacing, authentic boutique lodgings, and artisan cultural sessions.
+            Explore our 10-day trip across Kyoto and the Japanese Alps. See how we balance guided visits, free time to explore, and comfortable boutique stays.
           </p>
         </motion.div>
 
@@ -122,7 +122,7 @@ export const ItineraryTimeline: React.FC<ItineraryTimelineProps> = ({ onCustomiz
                             </span>
                             <span className="text-[11px] text-slate-400 hidden sm:inline">•</span>
                             <span className="text-[11px] text-slate-500 font-medium hidden sm:inline">
-                              {day.activities.length} Curated Experiences
+                              {day.activities.length} Included Activities
                             </span>
                           </div>
                           <h4 className="font-display font-bold text-base sm:text-lg text-slate-900 group-hover:text-brand-600 transition-colors leading-snug">

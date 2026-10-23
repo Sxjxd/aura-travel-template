@@ -91,17 +91,17 @@ export const Hero: React.FC<HeroProps> = ({
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-brand-200 shadow-sm text-xs font-semibold text-brand-700 mb-6">
               <Sparkles size={14} className="text-brand-500 fill-brand-500" />
-              <span>2025–2026 Small Group & Bespoke Departures Open</span>
+              <span>2025–2026 Small Group & Private Tours Now Booking</span>
             </div>
 
             {/* Main Headline */}
             <h1 className="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-slate-950 tracking-tight leading-[1.12]">
-              Journeys Crafted for <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-brand-500 to-teal-500">Curiosity & Wonder</span>
+              Travel Built for <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-brand-500 to-teal-500">Real Discovery</span>
             </h1>
 
             {/* Subtitle */}
             <p className="mt-5 text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
-              Immersive cultural expeditions, alpine treks, and coastal voyages led by certified local historians and naturalists. Transparent pricing, capped group sizes, and genuine care.
+              Small-group trips, guided mountain treks, and coastal routes led by local experts. Clear pricing, small groups, and 24/7 on-trip support.
             </p>
 
             {/* Quick Stats Pills */}
@@ -116,7 +116,7 @@ export const Hero: React.FC<HeroProps> = ({
               </div>
               <div className="flex items-center gap-1.5 bg-white/80 px-3 py-1 rounded-full border border-slate-200/80 shadow-xs">
                 <Compass size={14} className="text-brand-600" />
-                <span>Certified Resident Guides</span>
+                <span>Certified Local Guides</span>
               </div>
             </div>
 

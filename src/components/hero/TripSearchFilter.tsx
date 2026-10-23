@@ -17,7 +17,7 @@ export const TripSearchFilter: React.FC<TripSearchFilterProps> = ({
   totalResults,
 }) => {
   const categories: { key: TravelCategory; label: string }[] = [
-    { key: 'all', label: 'All Expeditions' },
+    { key: 'all', label: 'All Tours' },
     { key: 'cultural', label: 'Cultural & Historic' },
     { key: 'adventure', label: 'Active Adventure' },
     { key: 'coastal', label: 'Coastal & Islands' },

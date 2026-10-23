@@ -30,7 +30,7 @@ export const Footer: React.FC = () => {
               </span>
             </div>
             <p className="text-sm text-slate-400 max-w-sm leading-relaxed">
-              Crafting extraordinary small-group tours, cultural expeditions, and bespoke private itineraries with certified regional specialists across 50+ countries.
+              Small-group tours, adventure routes, and custom private travel led by certified local guides in over 50 countries.
             </p>
 
             {/* Accreditations */}
@@ -103,7 +103,7 @@ export const Footer: React.FC = () => {
               {/* Newsletter */}
               <div className="pt-3">
                 <p className="text-xs text-slate-400 mb-2 font-medium">
-                  Receive curated seasonal itineraries:
+                  Get seasonal travel updates & itineraries:
                 </p>
                 {subscribed ? (
                   <div className="flex items-center gap-1.5 text-xs text-emerald-400 bg-emerald-950/60 p-2 rounded-lg border border-emerald-800">

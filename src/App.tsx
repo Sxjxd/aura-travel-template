@@ -171,7 +171,7 @@ export const App: React.FC = () => {
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-500/20 border border-brand-400/30 text-brand-300 text-xs font-semibold mb-4">
               <Sparkles size={13} />
-              <span>Tailor-Made Private Travel</span>
+              <span>Custom Private Travel</span>
             </div>
 
             <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-white tracking-tight max-w-2xl mx-auto leading-tight">
@@ -179,7 +179,7 @@ export const App: React.FC = () => {
             </h2>
 
             <p className="mt-4 text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed">
-              Every small-group itinerary we run can be adapted into a private journey for your family, anniversary, or private group of friends with tailored pacing and lodging.
+              Every small-group tour we offer can be booked as a private trip for your family or friends, with dates and hotel choices tailored to your group.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
@@ -189,7 +189,7 @@ export const App: React.FC = () => {
                 onClick={() => handleOpenBuilder()}
               >
                 <CalendarCheck size={18} />
-                <span>Launch Interactive Trip Customizer</span>
+                <span>Build Your Custom Trip</span>
               </Button>
               <a
                 href="tel:+18005550199"

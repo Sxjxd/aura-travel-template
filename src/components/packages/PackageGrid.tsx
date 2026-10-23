@@ -26,7 +26,7 @@ export const PackageGrid: React.FC<PackageGridProps> = ({
   onResetFilters,
 }) => {
   const categoryTabs: { key: TravelCategory; label: string }[] = [
-    { key: 'all', label: 'All Expeditions' },
+    { key: 'all', label: 'All Tours' },
     { key: 'cultural', label: 'Cultural & Historic' },
     { key: 'adventure', label: 'Active Adventure' },
     { key: 'coastal', label: 'Coastal & Islands' },
@@ -60,10 +60,10 @@ export const PackageGrid: React.FC<PackageGridProps> = ({
             <span>Handpicked Routes</span>
           </div>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-slate-950 tracking-tight">
-            Curated Tour Packages
+            Featured Tour Packages
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
-            Authentic journeys designed with generous pacing, certified resident guides, and hand-selected boutique accommodations.
+            Small-group trips with reasonable travel times, certified local guides, and handpicked boutique hotels.
           </p>
         </motion.div>
 
@@ -107,7 +107,7 @@ export const PackageGrid: React.FC<PackageGridProps> = ({
             <Filter size={14} className="text-brand-600" />
             <span>
               Showing <strong className="text-slate-900">{packages.length}</strong> of{' '}
-              <strong className="text-slate-900">{allPackages.length}</strong> signature expeditions
+              <strong className="text-slate-900">{allPackages.length}</strong> tours
             </span>
           </div>
 
@@ -117,7 +117,7 @@ export const PackageGrid: React.FC<PackageGridProps> = ({
               className="text-xs font-semibold text-brand-600 hover:text-brand-800 flex items-center gap-1 cursor-pointer transition-colors"
             >
               <RotateCcw size={12} />
-              <span>Show All Journeys</span>
+              <span>Show All Tours</span>
             </button>
           )}
         </div>

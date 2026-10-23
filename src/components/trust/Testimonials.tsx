@@ -24,7 +24,7 @@ export const Testimonials: React.FC = () => {
             Stories From the Field
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600">
-            Read unedited feedback from travelers who returned from our small-group departures and bespoke routes.
+            Real feedback from travelers who returned from our small-group and private trips.
           </p>
         </motion.div>
 

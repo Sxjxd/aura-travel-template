@@ -133,7 +133,7 @@ export const CustomTripBuilder: React.FC<CustomTripBuilderProps> = ({
               <span className="text-xs font-bold uppercase tracking-wider text-brand-600">
                 Step {step} of 4: {
                   step === 1 ? 'Destinations & Style' :
-                  step === 2 ? 'Party & Pacing' :
+                  step === 2 ? 'Travelers & Dates' :
                   step === 3 ? 'Comfort Tier & Pricing' :
                   'Contact & Summary'
                 }
@@ -253,7 +253,7 @@ export const CustomTripBuilder: React.FC<CustomTripBuilderProps> = ({
 
                 <div className="flex justify-end pt-4 border-t border-slate-100">
                   <Button variant="primary" onClick={() => setStep(2)}>
-                    <span>Continue to Party & Pacing</span>
+                    <span>Continue to Travelers & Dates</span>
                     <ArrowRight size={14} />
                   </Button>
                 </div>
@@ -477,15 +477,15 @@ export const CustomTripBuilder: React.FC<CustomTripBuilderProps> = ({
                     <span className="font-bold text-slate-900">{selectedDestinations.join(', ')}</span>
                   </div>
                   <div>
-                    <span className="text-slate-400 block font-semibold">Party</span>
+                    <span className="text-slate-400 block font-semibold">Travelers</span>
                     <span className="font-bold text-slate-900">{adults} Adults{children > 0 ? `, ${children} Kids` : ''}</span>
                   </div>
                   <div>
-                    <span className="text-slate-400 block font-semibold">Length & Season</span>
+                    <span className="text-slate-400 block font-semibold">Duration & Season</span>
                     <span className="font-bold text-slate-900">{durationDays} Days • {travelSeason}</span>
                   </div>
                   <div>
-                    <span className="text-slate-400 block font-semibold">Est. Target</span>
+                    <span className="text-slate-400 block font-semibold">Est. Total</span>
                     <span className="font-bold text-brand-700">{formatCurrency(estimatedInvestment)}</span>
                   </div>
                 </div>

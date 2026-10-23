@@ -60,3 +60,56 @@ export const modalContentVariant: Variants = {
   visible: { opacity: 1, scale: 1, y: 0, transition: TRANSITION_SPRING },
   exit: { opacity: 0, scale: 0.96, y: 16, transition: { duration: 0.2 } },
 };
+
+export const viewportConfig = {
+  once: true,
+  margin: '-60px',
+};
+
+export const scrollRevealFadeUp: Variants = {
+  hidden: { opacity: 0, y: 32 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.65,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  },
+};
+
+export const scrollRevealLeft: Variants = {
+  hidden: { opacity: 0, x: -35 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.7,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  },
+};
+
+export const scrollRevealRight: Variants = {
+  hidden: { opacity: 0, x: 35 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.7,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  },
+};
+
+export const staggerScrollContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.15,
+    },
+  },
+};
+

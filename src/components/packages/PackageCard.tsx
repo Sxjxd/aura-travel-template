@@ -43,11 +43,12 @@ export const PackageCard: React.FC<PackageCardProps> = ({
   return (
     <motion.div
       layout
-      initial={{ opacity: 0, scale: 0.98 }}
-      animate={{ opacity: 1, scale: 1 }}
+      initial={{ opacity: 0, y: 25 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-40px' }}
       exit={{ opacity: 0, scale: 0.98 }}
       whileHover={{ y: -6 }}
-      transition={{ duration: 0.25 }}
+      transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
       className="bg-white rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-slate-300 flex flex-col transition-all duration-300 group"
     >
       {/* Image Container with Badges */}

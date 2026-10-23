@@ -1,14 +1,22 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { TESTIMONIALS } from '../../data/testimonials';
 import { RatingStars } from '../common/RatingStars';
 import { Badge } from '../common/Badge';
 import { Quote, CheckCircle, MapPin } from 'lucide-react';
+import { viewportConfig, scrollRevealFadeUp } from '../../utils/motion';
 
 export const Testimonials: React.FC = () => {
   return (
-    <section id="reviews" className="py-20 bg-white border-b border-slate-200">
+    <section id="reviews" className="py-20 bg-white border-b border-slate-200 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportConfig}
+          variants={scrollRevealFadeUp}
+          className="text-center max-w-2xl mx-auto mb-16"
+        >
           <Badge variant="brand" className="mb-2">
             Verified Traveler Experiences
           </Badge>
@@ -18,12 +26,16 @@ export const Testimonials: React.FC = () => {
           <p className="mt-3 text-sm sm:text-base text-slate-600">
             Read unedited feedback from travelers who returned from our small-group departures and bespoke routes.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {TESTIMONIALS.map((t) => (
-            <div
+          {TESTIMONIALS.map((t, idx) => (
+            <motion.div
               key={t.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={viewportConfig}
+              transition={{ duration: 0.55, delay: idx * 0.12, ease: [0.16, 1, 0.3, 1] }}
               className="bg-slate-50/70 rounded-2xl p-6 sm:p-8 border border-slate-200/90 flex flex-col justify-between hover:bg-slate-50 hover:shadow-md transition-all relative"
             >
               <Quote className="w-8 h-8 text-brand-200 mb-4" />
@@ -65,7 +77,7 @@ export const Testimonials: React.FC = () => {
                   <span>Tour: {t.tourName}</span>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

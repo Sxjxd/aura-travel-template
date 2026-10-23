@@ -4,6 +4,7 @@ import { Compass, RotateCcw, Sparkles, Filter } from 'lucide-react';
 import { TourPackage, TravelCategory } from '../../types/travel';
 import { PackageCard } from './PackageCard';
 import { Button } from '../common/Button';
+import { viewportConfig, scrollRevealFadeUp } from '../../utils/motion';
 
 interface PackageGridProps {
   packages: TourPackage[];
@@ -44,10 +45,16 @@ export const PackageGrid: React.FC<PackageGridProps> = ({
     : [];
 
   return (
-    <section id="tours" className="py-20 bg-slate-50 border-b border-slate-200">
+    <section id="tours" className="py-20 bg-slate-50 border-b border-slate-200 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
+        {/* Section Header with Scroll Reveal */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportConfig}
+          variants={scrollRevealFadeUp}
+          className="text-center max-w-3xl mx-auto mb-10"
+        >
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-50 border border-brand-200/80 text-xs font-bold text-brand-700 uppercase tracking-widest mb-3">
             <Sparkles size={13} className="text-brand-600" />
             <span>Handpicked Routes</span>
@@ -58,10 +65,16 @@ export const PackageGrid: React.FC<PackageGridProps> = ({
           <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
             Authentic journeys designed with generous pacing, certified resident guides, and hand-selected boutique accommodations.
           </p>
-        </div>
+        </motion.div>
 
         {/* In-Section Category Filter Bar */}
-        <div className="flex items-center justify-center gap-2 flex-wrap mb-10">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportConfig}
+          variants={scrollRevealFadeUp}
+          className="flex items-center justify-center gap-2 flex-wrap mb-10"
+        >
           {categoryTabs.map((tab) => {
             const count = getCategoryCount(tab.key);
             const isActive = activeCategory === tab.key;
@@ -86,7 +99,7 @@ export const PackageGrid: React.FC<PackageGridProps> = ({
               </button>
             );
           })}
-        </div>
+        </motion.div>
 
         {/* Filter Summary Strip */}
         <div className="flex items-center justify-between mb-8 pb-3 border-b border-slate-200 text-xs text-slate-500">

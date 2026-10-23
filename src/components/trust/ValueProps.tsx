@@ -1,5 +1,7 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Users2, BadgeDollarSign, Compass, Sparkles, CheckCircle2 } from 'lucide-react';
+import { viewportConfig, scrollRevealFadeUp } from '../../utils/motion';
 
 export const ValueProps: React.FC = () => {
   const values = [
@@ -38,9 +40,15 @@ export const ValueProps: React.FC = () => {
   ];
 
   return (
-    <section id="why-us" className="py-20 bg-slate-50 border-b border-slate-200">
+    <section id="why-us" className="py-20 bg-slate-50 border-b border-slate-200 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportConfig}
+          variants={scrollRevealFadeUp}
+          className="text-center max-w-2xl mx-auto mb-16"
+        >
           <div className="text-xs font-bold uppercase tracking-widest text-brand-600 mb-2">
             The AURA Difference
           </div>
@@ -50,12 +58,16 @@ export const ValueProps: React.FC = () => {
           <p className="mt-3 text-sm sm:text-base text-slate-600">
             Why seasoned travelers choose our small group and custom departures over mass-market bus tours.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {values.map((v, idx) => (
-            <div
+            <motion.div
               key={idx}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={viewportConfig}
+              transition={{ duration: 0.55, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
               className={`bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/90 border-t-4 ${v.topBorder} shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group`}
             >
               <div>
@@ -78,7 +90,7 @@ export const ValueProps: React.FC = () => {
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

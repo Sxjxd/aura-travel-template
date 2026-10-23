@@ -1,5 +1,7 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Star, Globe2, Award, Headset, CheckCircle2 } from 'lucide-react';
+import { viewportConfig } from '../../utils/motion';
 
 export const TrustBar: React.FC = () => {
   const stats = [
@@ -42,8 +44,12 @@ export const TrustBar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {stats.map((stat, i) => (
-            <div
+            <motion.div
               key={i}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={viewportConfig}
+              transition={{ duration: 0.5, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/80 shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
@@ -68,7 +74,7 @@ export const TrustBar: React.FC = () => {
                 <CheckCircle2 size={12} className="text-emerald-500 shrink-0" />
                 <span>{stat.sublabel}</span>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -4,6 +4,7 @@ import { TOUR_PACKAGES } from '../../data/packages';
 import { ChevronDown, MapPin, Hotel, Utensils, Sparkles, CheckCircle2 } from 'lucide-react';
 import { Button } from '../common/Button';
 import { Badge } from '../common/Badge';
+import { viewportConfig, scrollRevealFadeUp, scrollRevealLeft, scrollRevealRight } from '../../utils/motion';
 
 interface ItineraryTimelineProps {
   onCustomizeTrip: (defaultDestination?: string) => void;
@@ -14,10 +15,16 @@ export const ItineraryTimeline: React.FC<ItineraryTimelineProps> = ({ onCustomiz
   const [expandedDay, setExpandedDay] = useState<number>(1);
 
   return (
-    <section id="itinerary" className="py-20 bg-white border-b border-slate-200">
+    <section id="itinerary" className="py-24 bg-white border-b border-slate-200 scroll-mt-24 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        {/* Section Header with Scroll Reveal */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportConfig}
+          variants={scrollRevealFadeUp}
+          className="text-center max-w-3xl mx-auto mb-14"
+        >
           <Badge variant="brand" className="mb-3">
             <Sparkles size={13} className="text-brand-600" />
             <span>Interactive Route Breakdown</span>
@@ -28,12 +35,18 @@ export const ItineraryTimeline: React.FC<ItineraryTimelineProps> = ({ onCustomiz
           <p className="mt-3 text-base text-slate-600">
             Take a deep dive into our flagship 10-day expedition through ancient Kyoto and the Japanese Alps. Notice the thoughtful pacing, authentic boutique lodgings, and artisan cultural sessions.
           </p>
-        </div>
+        </motion.div>
 
         {/* Content Layout: 2 Columns */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           {/* Left Column: Interactive Accordion of Days */}
-          <div className="lg:col-span-7 space-y-4">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportConfig}
+            variants={scrollRevealLeft}
+            className="lg:col-span-7 space-y-4"
+          >
             {/* Quick Day Selector Tabs */}
             <div className="flex items-center justify-between pb-3 border-b border-slate-200">
               <div className="flex items-center gap-2 overflow-x-auto no-scrollbar">
@@ -183,10 +196,16 @@ export const ItineraryTimeline: React.FC<ItineraryTimelineProps> = ({ onCustomiz
                 );
               })}
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Visual Route Card & Summary */}
-          <div className="lg:col-span-5 bg-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl relative overflow-hidden">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportConfig}
+            variants={scrollRevealRight}
+            className="lg:col-span-5 bg-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl relative overflow-hidden lg:sticky lg:top-28"
+          >
             <div className="absolute top-0 right-0 w-64 h-64 bg-brand-500/10 rounded-full blur-3xl pointer-events-none" />
 
             <div className="flex items-center justify-between mb-4">
@@ -269,7 +288,7 @@ export const ItineraryTimeline: React.FC<ItineraryTimelineProps> = ({ onCustomiz
             >
               Customize This Itinerary
             </Button>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FAQS } from '../../data/faqs';
 import { ChevronDown, HelpCircle, PhoneCall } from 'lucide-react';
 import { Button } from '../common/Button';
+import { viewportConfig, scrollRevealFadeUp } from '../../utils/motion';
 
 interface FAQSectionProps {
   onOpenTripBuilder: () => void;
@@ -23,9 +24,15 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onOpenTripBuilder }) => 
   };
 
   return (
-    <section id="faq" className="py-20 bg-slate-50 border-b border-slate-200">
+    <section id="faq" className="py-20 bg-slate-50 border-b border-slate-200 scroll-mt-24">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportConfig}
+          variants={scrollRevealFadeUp}
+          className="text-center mb-12"
+        >
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-50 border border-brand-200 text-xs font-semibold text-brand-700 mb-2">
             <HelpCircle size={14} />
             <span>Clear Answers Before You Travel</span>
@@ -36,7 +43,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onOpenTripBuilder }) => 
           <p className="mt-2 text-sm sm:text-base text-slate-600">
             Everything you need to know about deposits, cancellation safety, group dynamics, and baggage handling.
           </p>
-        </div>
+        </motion.div>
 
         {/* Category Pills */}
         <div className="flex flex-wrap items-center justify-center gap-2 mb-8">

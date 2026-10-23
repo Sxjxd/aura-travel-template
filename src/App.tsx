@@ -1,4 +1,6 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
+import Lenis from 'lenis';
+import 'lenis/dist/lenis.css';
 import { Navbar } from './components/navigation/Navbar';
 import { Hero } from './components/hero/Hero';
 import { TrustBar } from './components/trust/TrustBar';
@@ -20,6 +22,42 @@ export const App: React.FC = () => {
   const [selectedPackage, setSelectedPackage] = useState<TourPackage | null>(null);
   const [isBuilderOpen, setIsBuilderOpen] = useState(false);
   const [builderDestination, setBuilderDestination] = useState<string | undefined>(undefined);
+
+  // Initialize Lenis luxury smooth scrolling
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.25,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      touchMultiplier: 1.5,
+    });
+
+    let animationFrameId: number;
+    function raf(time: number) {
+      lenis.raf(time);
+      animationFrameId = requestAnimationFrame(raf);
+    }
+    animationFrameId = requestAnimationFrame(raf);
+
+    // Smoothly intercept in-page anchor links (e.g. #itinerary, #tours) with controlled easing
+    const handleAnchorClick = (e: MouseEvent) => {
+      const target = (e.target as HTMLElement).closest('a[href^="#"]');
+      if (target) {
+        const href = target.getAttribute('href');
+        if (href && href !== '#' && document.querySelector(href)) {
+          e.preventDefault();
+          lenis.scrollTo(href, { offset: -85, duration: 1.35 });
+        }
+      }
+    };
+    document.addEventListener('click', handleAnchorClick);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      document.removeEventListener('click', handleAnchorClick);
+      lenis.destroy();
+    };
+  }, []);
 
   // Filter state
   const [filters, setFilters] = useState<TripFilterState>({

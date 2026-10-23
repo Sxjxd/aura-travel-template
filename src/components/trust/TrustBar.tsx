@@ -1,0 +1,77 @@
+import React from 'react';
+import { Star, Globe2, Award, Headset, CheckCircle2 } from 'lucide-react';
+
+export const TrustBar: React.FC = () => {
+  const stats = [
+    {
+      icon: <Star className="w-5 h-5 text-amber-500 fill-amber-500" />,
+      iconBg: 'bg-amber-50 border-amber-200/80',
+      tag: 'Verified Score',
+      value: '4.96 / 5.0',
+      label: 'Traveler Satisfaction',
+      sublabel: 'Over 500+ unedited client reviews',
+    },
+    {
+      icon: <Globe2 className="w-5 h-5 text-brand-600" />,
+      iconBg: 'bg-sky-50 border-sky-200/80',
+      tag: 'Worldwide',
+      value: '52 Countries',
+      label: 'Curated Global Routes',
+      sublabel: 'Hand-scouted routes & boutique stays',
+    },
+    {
+      icon: <Award className="w-5 h-5 text-emerald-600" />,
+      iconBg: 'bg-emerald-50 border-emerald-200/80',
+      tag: 'Intimacy Guarantee',
+      value: 'Max 8–14',
+      label: 'Small Group Capping',
+      sublabel: 'Zero tour bus crowds, intimate access',
+    },
+    {
+      icon: <Headset className="w-5 h-5 text-indigo-600" />,
+      iconBg: 'bg-indigo-50 border-indigo-200/80',
+      tag: 'Live Liaison',
+      value: '24/7 Field Care',
+      label: 'Dedicated Concierge',
+      sublabel: 'Direct mobile specialist on call',
+    },
+  ];
+
+  return (
+    <section className="bg-gradient-to-b from-white via-slate-50/60 to-slate-50 border-y border-slate-200/80 py-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {stats.map((stat, i) => (
+            <div
+              key={i}
+              className="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/80 shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-300 flex flex-col justify-between group"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <div className={`p-2.5 rounded-xl border ${stat.iconBg} group-hover:scale-105 transition-transform`}>
+                    {stat.icon}
+                  </div>
+                  <span className="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 border border-slate-200/60">
+                    {stat.tag}
+                  </span>
+                </div>
+
+                <div className="font-display font-extrabold text-2xl lg:text-3xl text-slate-900 tracking-tight group-hover:text-brand-600 transition-colors">
+                  {stat.value}
+                </div>
+                <div className="text-xs sm:text-sm font-bold text-slate-800 mt-1">
+                  {stat.label}
+                </div>
+              </div>
+
+              <div className="mt-3 pt-3 border-t border-slate-100 text-[11px] text-slate-500 flex items-center gap-1.5">
+                <CheckCircle2 size={12} className="text-emerald-500 shrink-0" />
+                <span>{stat.sublabel}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};

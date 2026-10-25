@@ -28,15 +28,20 @@ export const Modal: React.FC<ModalProps> = ({
       }
     };
 
+    const lenis = (window as unknown as { __lenis?: { stop: () => void; start: () => void } }).__lenis;
+
     if (isOpen) {
       document.body.style.overflow = 'hidden';
+      lenis?.stop();
       window.addEventListener('keydown', handleKeyDown);
     } else {
       document.body.style.overflow = 'unset';
+      lenis?.start();
     }
 
     return () => {
       document.body.style.overflow = 'unset';
+      lenis?.start();
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [isOpen, onClose]);
@@ -54,7 +59,10 @@ export const Modal: React.FC<ModalProps> = ({
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-hidden overscroll-contain"
+          data-lenis-prevent="true"
+        >
           {/* Backdrop */}
           <motion.div
             variants={modalBackdropVariant}
@@ -71,15 +79,16 @@ export const Modal: React.FC<ModalProps> = ({
             initial="hidden"
             animate="visible"
             exit="exit"
+            data-lenis-prevent="true"
             className={cn(
-              'relative w-full bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden z-10 my-8 flex flex-col max-h-[90vh]',
+              'relative w-full bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden z-10 flex flex-col max-h-[92vh] overscroll-contain',
               maxWidthStyles[maxWidth],
               className
             )}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-slate-50/50">
+            <div className="flex items-center justify-between px-5 sm:px-6 py-3.5 border-b border-slate-100 bg-slate-50/50 shrink-0">
               {title ? (
                 <h3 className="font-display font-bold text-lg text-slate-900">{title}</h3>
               ) : (
@@ -95,7 +104,10 @@ export const Modal: React.FC<ModalProps> = ({
             </div>
 
             {/* Scrollable Content */}
-            <div className="p-6 overflow-y-auto flex-1">
+            <div
+              className="p-4 sm:p-6 overflow-y-auto flex-1 overscroll-contain"
+              data-lenis-prevent="true"
+            >
               {children}
             </div>
           </motion.div>
